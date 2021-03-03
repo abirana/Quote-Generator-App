@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $.ajax( {
-        url: 'https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=',
+        url: 'https://quotesondesign.com/wp-json/wp/v2/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=',
         success: function(data) {
         var post = data.shift(); // The data is an array of posts. Grab the first one.
         $('#quote-title').text(post.title);
@@ -24,7 +24,7 @@ $(document).ready(function() {
 $('#get-another-quote').on('click', function(e) {
     e.preventDefault();
     $.ajax( {
-      url: 'https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=',
+      url: 'https://quotesondesign.com/wp/v2/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=',
       success: function(data) {
         var post = data.shift(); // The data is an array of posts. Grab the first one.
         $('#quote-title').text(post.title);
